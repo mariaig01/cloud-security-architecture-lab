@@ -1,0 +1,15 @@
+# Replace these placeholders locally. Never add credentials to this file.
+aws_account_id        = "123456789012"
+aws_region            = "eu-west-1"
+documents_bucket_name = "replace-me-cslab-documents-unique"
+logs_bucket_name      = "replace-me-cslab-audit-unique"
+document_prefix       = "app/documents/"
+vpc_cidr              = "10.42.0.0/16"
+# availability_zone = "eu-west-1a"
+
+# Real EC2 probes are OFF by default. Keep them off for local validation.
+enable_probes       = false
+enable_public_probe = false
+# Before enabling, review costs and a saved plan; see docs/deployment.md.
+# probe_ami_id = "ami-REPLACE-WITH-VERIFIED-REGIONAL-ID"
+# probe_run_id = "unique-lab-run-id"

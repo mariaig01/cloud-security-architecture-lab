@@ -1,0 +1,34 @@
+# Terraform working directory, local state and plans
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.plan
+tfplan*
+*.plan.json
+.terraform.tfstate.lock.info
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Local account configuration; examples and provider lock belong in version control
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+.env
+.env.*
+!.env.example
+.aws/
+credentials
+*.pem
+*.key
+
+# Raw evidence can contain account identifiers and document contents
+evidence/raw/
+artifacts/
+.tools/
+__pycache__/
+*.pyc

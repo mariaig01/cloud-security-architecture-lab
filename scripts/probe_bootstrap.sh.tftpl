@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euo pipefail
+umask 077
+# Stop even if bootstrap fails or hangs. A stopped EBS volume still costs money.
+/sbin/shutdown -h +30
+mkdir -p /opt/cslab
+%{ for name, source in sources ~}
+printf '%s' '${source}' | base64 --decode > '/opt/cslab/${name}'
+%{ endfor ~}
+# Python -u ensures the summary reaches the console while the listener stays alive.
+# Do not enable shell tracing or AWS CLI --debug: output is collected as evidence.
+exec /usr/bin/python3 -u /opt/cslab/${location}_probe.py ${arguments} > /dev/console 2>&1
